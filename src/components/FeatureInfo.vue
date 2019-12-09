@@ -2,6 +2,7 @@
 div
     h1 {{ p.Name }}
     p {{ p.Hours }}
+    
     h3
         a(target="_blank" :href="p.Link") More information
 
