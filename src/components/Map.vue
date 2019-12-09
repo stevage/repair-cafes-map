@@ -7,8 +7,16 @@ import mapboxgl from 'mapbox-gl';
 import U from 'mapbox-gl-utils';
 const d3 = require('d3-fetch');
 
-// Replace this URL with your own Google Sheets link
-const csvSource = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR9qYMju-qqH_IL8e2ksN0wpVXfHBUEKF079WX1eSAgPFRG5z0RAmpjVwS8sVrZSC0fVrNpSMjaB5Cu/pub?gid=0&single=true&output=csv';
+// Replace this URL with your own Google Sheets ID (the part of the url .../d/TH1sB1t/edit/... )
+// const sheetsId = '1m9yfDs4nSAeZv4YFUfaC16oTV51GVsuwuKgnPgBEFjs';
+const sheetsId = '2PACX-1vQjDnqpI1AvtDvIM7QDsioGGs8VsvqnAgP1tXhMT6aGtlIXqnRdlQP-eSix8KDhO0Gspx3NdlDXKkXP';
+const csvSource = `https://docs.google.com/spreadsheets/d/e/${sheetsId}/pub?gid=0&single=true&output=csv`;
+
+const sheetNo = 1;
+// I don't know in which context json1 works vs json2. 
+// https://medium.com/dali-lab/google-sheets-and-json-easy-backend-e29e9ef3df2
+const json1 = `https://spreadsheets.google.com/feeds/cells/${sheetsId}/${sheetNo}/public/full?alt=json`
+const json2 = `https://spreadsheets.google.com/feeds/cells/${sheetsId}/${sheetNo}/od6/public/values?alt=json`
 
 function toPoints(rows) {
     return {
@@ -37,7 +45,7 @@ export default {
             zoom: 14,
             style: 'mapbox://styles/mapbox/light-v9',
         });
-        U.init(map);
+        U.init(map, mapboxgl);
         window.map = map;
         window.Map = this;
 
