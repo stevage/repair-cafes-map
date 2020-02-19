@@ -36,8 +36,8 @@ export default {
         mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJjazNmNGV5enAwMTF1M2tuejhtc2twcXo5In0.mLPrYIYJ2FiFZ3KMqVIj6w';
         const map = new mapboxgl.Map({
             container: 'map',
-            center: [144.96, -37.81],
-            zoom: 14,
+            center: [144.96, -37],
+            zoom: 7,
             style: 'mapbox://styles/mapbox/light-v9',
             hash: true
         });

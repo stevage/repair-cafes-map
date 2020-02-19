@@ -1,18 +1,21 @@
 <template lang="pug">
-div.ba.b--gray.pa2.br3.shadow-1.box(:class="{ [p.Category.replace(' ', '')]: true }")
-    .f6.ttu.b.category(:class="{ [p.Category.replace(' ', '')]: true }") {{ p.Category }}
-    h1.f3 {{ p.Name }}
-    p.i {{ p.Hours }}
-    
-    p {{ p.Notes }}
-    p {{ p.Address }}
-    div(v-if="p.Link")
-        //- h4 For more information
-        ul
-            li
-                a(:href="p.Link") More information
-            li(v-if="p['Link 2']")
-                a(:href="p['Link 2']") See also
+#FeatureInfo
+    div.ba.b--gray.pa2.br3.shadow-1.box(:class="{ [p.Category.replace(' ', '')]: true }" v-if="feature")
+        .f6.ttu.b.category(:class="{ [p.Category.replace(' ', '')]: true }") {{ p.Category }}
+        h1.f4 {{ p.Name }}
+        p.i {{ p.Hours }}
+        
+        p {{ p.Notes }}
+        p {{ p.Address }}
+        div(v-if="p.Link")
+            //- h4 For more information
+            ul
+                li
+                    a(:href="p.Link") More information
+                li(v-if="p['Link 2']")
+                    a(:href="p['Link 2']") See also
+    div(v-else)
+        h2 Click a repair cafe for information.
 
 
 </template>
@@ -29,7 +32,7 @@ export default {
             return this.feature && this.feature.properties.image_url
         }, p() {
             if (!this.feature) {
-                return {}
+                return {Category:''}
             } else {
                 return this.feature.properties;
             }
