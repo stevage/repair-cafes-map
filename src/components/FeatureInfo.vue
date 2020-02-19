@@ -11,9 +11,9 @@
             //- h4 For more information
             ul
                 li
-                    a(:href="p.Link") More information
+                    a(:href="p.Link" target="_blank") More information
                 li(v-if="p['Link 2']")
-                    a(:href="p['Link 2']") See also
+                    a(:href="p['Link 2']" target="_blank") See also
     div(v-else)
         h2 Click a repair cafe for information.
 
