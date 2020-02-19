@@ -3,12 +3,12 @@
         //- #top.bb.b--gray.bg-washed-yellow.h3
         //-     h1 Community Map
         #middle.flex.flex-auto
-            #sidebar.br.b--light-gray.overflow-auto.w3.w5-ns
+            #sidebar.br.b--light-gray.overflow-auto.w3.w5-ns.pa2
                 FeatureInfo
             #map-container.relative.flex-auto
                 Map
                 #overlay.absolute
-        #bottom.bt.b--light-gray.flex-none.h2
+        //- #bottom.bt.b--light-gray.flex-none.h2
 </template>
 
 <script>

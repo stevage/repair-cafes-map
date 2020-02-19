@@ -1,17 +1,20 @@
 <template lang="pug">
-div
-    h1 {{ p.Name }}
-    p {{ p.Hours }}
+div.ba.b--gray.pa2.br3.shadow-1.box(:class="{ [p.Category.replace(' ', '')]: true }")
+    .f6.ttu.b.category(:class="{ [p.Category.replace(' ', '')]: true }") {{ p.Category }}
+    h1.f3 {{ p.Name }}
+    p.i {{ p.Hours }}
     
-    h3
-        a(target="_blank" :href="p.Link") More information
+    p {{ p.Notes }}
+    p {{ p.Address }}
+    div(v-if="p.Link")
+        //- h4 For more information
+        ul
+            li
+                a(:href="p.Link") More information
+            li(v-if="p['Link 2']")
+                a(:href="p['Link 2']") See also
 
-    img.image(v-if="imageUrl" :src="imageUrl")
-    //- table#FeatureInfo(v-if="feature").bg-white.b--gray.ba.helvetica.ma1
-    //-     tr(v-for="(value, prop) in feature.properties")
-    //-         template(v-if="ignoreProps.indexOf(prop) === -1")
-    //-             th.f6 {{ prop }}
-    //-             td.f6 {{ value }}
+
 </template>
 
 <script>
@@ -45,6 +48,20 @@ export default {
 
 .image {
     width: 100%;
+}
+
+.category.Repaircafe {
+    color: hsl(330,100%,40%);
+}
+.category.Toollibrary {
+    color: hsl(210,100%,40%);
+}
+
+.box.Repaircafe {
+    background: hsl(330,100%,97%);
+}
+.box.Toollibrary {
+    background: hsl(210,100%,95%);
 }
 
 </style>
