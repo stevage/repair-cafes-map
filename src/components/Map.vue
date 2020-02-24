@@ -49,20 +49,30 @@ export default {
         map.U.addGeoJSON('points', points, { generateId: true });
         map.U.addCircle('points-circles', 'points', {
             circleColor: ['match', ['get', 'Category'],
-                'Repair cafe', 'hsl(330,100%,40%)',
-                'Tool library', 'hsl(210,100%,40%)',
+                'Repair group', 'hsla(330,100%,40%,0.2)',
+                'Sharing centre', 'hsla(210,100%,40%,0.2)',
+                'transparent'
+            ],
+            circleStrokeColor: ['match', ['get', 'Category'],
+                'Repair group', 'hsl(330,100%,40%)',
+                'Sharing centre', 'hsl(210,100%,40%)',
                 'black'
             ],
-            circleStrokeWidth: ['case', ['feature-state', 'selected'], 2, 0],
-            circleRadius: { stops: [[10,6], [12, 10]] },
+            circleStrokeWidth: ['case', ['to-boolean', ['feature-state', 'selected']], 6, 2],
+            circleRadius: ['interpolate', ['linear'], ['zoom'],
+                5, ['match', ['get', 'Category'], 'Repair group', 4, 3],
+                10, ['match', ['get', 'Category'], 'Repair group', 8, 5],
+                12, ['match', ['get', 'Category'], 'Repair group', 12, 9],
+            ],
+            // circleRadius: { stops: [[10,6], [12, 10]] },
 
         });
         map.U.addSymbol('points-labels', 'points', {
             textField: ['get', 'Name'],
             textAnchor: 'left',
             textColor: ['match', ['get', 'Category'],
-                'Repair cafe', 'hsl(330,100%,40%)',
-                'Tool library', 'hsl(210,100%,40%)',
+                'Repair group', 'hsl(330,100%,40%)',
+                'Sharing centre', 'hsl(210,100%,40%)',
                 'black'
             ],
             textJustify: 'left',

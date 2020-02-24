@@ -8,12 +8,10 @@
         p {{ p.Notes }}
         p {{ p.Address }}
         div(v-if="p.Link")
-            //- h4 For more information
-            ul
-                li
-                    a(:href="p.Link" target="_blank") More information
-                li(v-if="p['Link 2']")
-                    a(:href="p['Link 2']" target="_blank") See also
+            div
+                a(:href="p.Link" target="_blank") More information
+            div(v-if="p['Link 2']")
+                a(:href="p['Link 2']" target="_blank") See also
     div(v-else)
         h2 Click a repair cafe for information.
 
@@ -53,17 +51,17 @@ export default {
     width: 100%;
 }
 
-.category.Repaircafe {
+.category.Repairgroup {
     color: hsl(330,100%,40%);
 }
-.category.Toollibrary {
+.category.Sharingcentre {
     color: hsl(210,100%,40%);
 }
 
-.box.Repaircafe {
+.box.Repairgroup {
     background: hsl(330,100%,97%);
 }
-.box.Toollibrary {
+.box.Sharingcentre {
     background: hsl(210,100%,95%);
 }
 
