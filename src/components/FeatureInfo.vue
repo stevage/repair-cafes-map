@@ -1,7 +1,7 @@
 <template lang="pug">
 #FeatureInfo
-    div.ba.b--gray.pa2.br3.shadow-1.box(:class="{ [p.Category.replace(' ', '')]: true }" v-if="feature")
-        .f6.ttu.b.category(:class="{ [p.Category.replace(' ', '')]: true }") {{ p.Category }}
+    div.ba.b--gray.pa2.br3.mt1.shadow-1.box(:class="{ [p.Category.replace(' ', '')]: true }" v-if="feature")
+        .f6.ttu.b.mt1.category(:class="{ [p.Category.replace(' ', '')]: true }") {{ p.Category }}
         h1.f4 {{ p.Name }}
         p.i {{ p.Hours }}
         

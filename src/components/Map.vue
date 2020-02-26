@@ -76,7 +76,10 @@ export default {
                 'black'
             ],
             textJustify: 'left',
-            textOffset:[0.6, 0],
+            textOffset:['case', ['==', ['get', 'Category'], 'Repair group'],
+                ['literal', [1, 0]],
+                ['literal', [0.7, 0]],
+            ],
             minzoom: 11
         });
         map.U.hoverPointer('points-circles');
